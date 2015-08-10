@@ -111,9 +111,10 @@ function createRequest(valid){
 			 data: request,
 	       	success: function(data)
 	        		{
-		       		$("#errorMsg").html("Blood Request Submitted.").show("slow");
+		       		
 		       		$('#requestForm').trigger("reset");
 		       		$('#requestForm').data('validator').resetForm();
+		       		alert("Blood request submitted. You would be contacted by administrator.");
 	        		},
 	        		error: function(xhr, error){
 	        	        $("#errorMsg").html(xhr.responseText).show();
