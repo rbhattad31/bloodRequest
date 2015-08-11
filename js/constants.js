@@ -2,7 +2,7 @@
 /**
  * 
  */
-url = 'http://localhost/bdonate/bdApi/index.php';
+url = 'http://localhost/bloodRequest/bdApi/index.php';
 
 
 function validateCaptcha(captcha,hash,callback){

@@ -30,15 +30,17 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
 }
 body{
 background-color: rgba(255, 255, 255, 0.3);
-    background-image: url("../images/bd1.jpg");
+    background-image: url("../images/3.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
+	background-size:cover;
 }
 img.responsive{
 	width:100%;
 }
+img{max-width:100%;}
 .hbgcolor h1, .in{
 	color:#fff;
 }
@@ -50,7 +52,7 @@ margin-right: 0px;
 margin-left: 0px;
 }
 .header-fullwidth .row-1 {
-background-color: rgba(255, 255, 255, 0.3);
+background-color: rgba(255, 255, 255, 0.7);
 min-height: 90px;
 }
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
@@ -58,7 +60,7 @@ min-height: 90px;
 	border:none !important;
 }
 .min-height-all-page{
-	min-height:540px;
+	/*min-height:540px;*/
 }
 .form-control{
 	border-radius:0px;
@@ -135,7 +137,7 @@ background-color: rgba(255, 255, 255, 0.5);
     margin-left: 0 !important;
     outline: medium none;
     padding: 6px !important;
-    width: 68%;
+    width: 70.8%;
 }
 .otp-enter{
 	width:97%;
@@ -176,26 +178,29 @@ margin-top:34px;
 }
 .hrmtop a{
 margin-left:14px;
-color: #4C4C4C;
+color:#337ab7;
+font-weight:500;
 }
+.login-hide .glyphicon{color:#C00000; padding-right:5px;}
 /* search form start */
 .search-padding-bg{
 	padding:20px;
-background-color: rgba(149, 145, 140, 0.5);
+background-color: rgba(161, 10, 10, 1);
 color:#fff;
 }
 
 .iwant{
 	padding-top:5px;
 	font-weight:400;
-	font-size:18px;
+	font-size:16px;
+	font-family:Calibri;
 	
 }
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
 background-color: #908B8B;
 opacity: 1;
 }
-
+/*
 .btn-dgn{
 	background-color: rgba(255, 255, 255, 0.5);
     border: medium none;
@@ -207,10 +212,48 @@ opacity: 1;
 width:150px;
 margin-right:20px;
 	
+}*/
+.btn-dgn
+{
+	display:inline-block;
+	font-weight: bold;
+	padding: 10px 15px;
+	margin: 20px auto;
+	color: #ccc;
+	background-color: #555;
+	background: -webkit-linear-gradient(#888, #555);
+	background: linear-gradient(#888, #555);
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+	cursor: pointer;
+	-webkit-transition: all 150ms ease;
+	transition: all 150ms ease;
+	clear:both;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif !important
+	
 }
-.btn{
-	    border-radius: 0 !important;
+
+.btn-dgn:hover, .btn-dgn:focus
+{
+	-webkit-animation: pulsate 1.2s linear infinite;
+	animation: pulsate 1.2s linear infinite;
+	color:#fff;
 }
+	
+.btn-dgn:active
+{
+	color: #fff;
+	text-shadow: 0 -1px 0 #444, 0 0 5px #ffd, 0 0 8px #fff;
+	box-shadow: 0 1px 0 #666, 0 2px 0 #444, 0 2px 2px rgba(0,0,0,0.9);
+	-webkit-transform: translateY(3px);
+	transform: translateY(3px);
+	-webkit-animation: none;
+	animation: none;
+}
+
+
+
 .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9{
 	margin:0px;
 	padding:0px;
@@ -231,10 +274,10 @@ background-repeat:no-repeat;
  }
 .form-control{
 	background-color: rgba(255, 255, 255, 0.5);
-
-margin: 0 20px;
+width:94%;
+margin: 0 10px;
 	outline:0px;
-	width: 94%;
+	
 }
 .forgot-top{
 	
@@ -268,20 +311,19 @@ background-position:right center !important;
 background-repeat:no-repeat !important;
 }
 .forgot-pwd-link{
-			background-image:url("../images/f-pwd.png");
 background-position:left center;
 background-repeat:no-repeat;
-	padding-left:45px;
+	padding-left:10px;
 	
 }
 .login-btn{
-		background-color: rgba(255, 255, 255, 0.5);
+		background-color: rgba(255, 255, 255, 0.8);
     border: medium none;
     border-radius: 0;
     box-shadow: none;
        margin-top: 10px;
     outline: medium none;
-
+color:#333;
 width:100px;
 margin-right:20px;
 }
@@ -297,25 +339,25 @@ margin-right:20px;
 }
 
 .update-mbnumber-btn{
- background-color: rgba(255, 255, 255, 0.5);
+ background-color: rgba(255, 255, 255, 0.8);
     border: medium none;
     border-radius: 0;
     box-shadow: none;
     font-size: 14px;
-
+color:#333;
     margin-top: 20px;
     outline: medium none;
     padding: 5px;
     width: 197px;
 	}
 .reset-button{
-			background-color: rgba(255, 255, 255, 0.5);
+			background-color: rgba(255, 255, 255, 0.8);
     border: medium none;
     border-radius: 0;
     box-shadow: none;
     outline: medium none;
     margin-top:20px;
-
+color:#333;
 width:140px;
 margin-right:20px;
 }
@@ -339,9 +381,9 @@ margin-right:20px;
 margin-left:3%;
     width: 94%;
 }
-.captcha-center-details2{
+/*.captcha-center-details2{
 	margin-top:13px;
-}
+}*/
 .captcha{
 height: 32px;
 margin-top: 1px;
@@ -357,10 +399,10 @@ padding-left:10px;
 font-weight:100;
     
 }
-.btn:hover{
+/*.btn:hover{
 	background:#ff0000;
 	color:#fff;
-}
+}*/
 #regerrorMsg ul li{
 	color:red;
 	font-size:12px;
@@ -377,12 +419,11 @@ font-weight:100;
 	color:red;
 }
 input{
-	background-color: rgba(255, 255, 255, 0.3) !important;
+	background-color: rgba(255, 255, 255, 0.89) !important;
 }
 input[type=search]{
-
 height: 27px;
-background-color: rgba(255, 255, 255, 0.5);
+background-color: rgba(255, 255, 255, 0.89);
 background-image: url("../images/search.png");
 background-position: right center;
 background-repeat: no-repeat;
@@ -391,13 +432,14 @@ border: none;
 outline: none;
 }
 div.dataTables_length select{
-	
+	color:#333;
 height: 27px;
-background-color: rgba(255, 255, 255, 0.5);
+background-color: rgba(255, 255, 255, 0.85);
 padding-left:10px;
 border: none;
 outline: none;
 }
+div.dataTables_filter input{margin-left:5px;}div.dataTables_filter label,div.dataTables_length label{color:#fff;}
 .b-close{
 bottom: 10px;
     cursor: pointer;
@@ -407,10 +449,16 @@ bottom: 10px;
 
     top: 1px;
 }
+.b-close:hover{color:#ccc;}
 .form-tile{
 	text-align:center;
 	color:#fff;
 	
+}
+input{color:#333 !important;}
+.search-form-box {
+    margin: 0 auto;
+    width: 47%;
 }
 .loginform-dsplay{
 	
@@ -420,13 +468,12 @@ bottom: 10px;
 	display:none;
 	position:absolute;
 	z-index:1;
-	background-color: rgba(255, 255, 255,0.5);
+	background-color:#a10a0a;
 }
 .error{
-	color:#f20;
-background:#000;
+	color:#d50a0a;
+background:#ccc;
 	font-size:12px;
-	font-weight:100;
 	margin-left: 22px;
     padding: 0px 5px;
 }
@@ -447,14 +494,16 @@ background-repeat:no-repeat;
 
 /* forget password End */
 .footer-fullwidth{
-background-color: rgba(255, 255, 255, 0.3);
+background-color: rgba(0, 0, 0, 0.5);
 line-height:30px;
-
+width:100%;
+float:left;
+bottom:0px;
 }
 
 
 .loginform-dsplay a{
-  color: #300;
+  color: #fff;
 
 }
 /* popup start here */
@@ -472,10 +521,11 @@ line-height:30px;
 			border-radius:5px;
 				-webkit-border-radius:5px;
 					-moz-border-radius:5px;
-				background-color: rgba(255, 255, 255,0.5);
-	
+				background-color:#a10a0a;
+	/*#e2af16*/
 }
-
+table.dataTable,.table{color:#000; font-family:Arial, Helvetica, sans-serif; font-size:15px; float:left;}
+div.dataTables_info{color:#ccc; font-family:Arial, Helvetica, sans-serif; font-size:15px; float:left;}
 .dropdown-menu, .form-control{
 	z-index:10000;
 }
@@ -514,9 +564,10 @@ width: 255px;
 	
 }
 .fbgcolor a{
-	color:#000;
+	color:#fff;
  line-height: 55px;
 }
+.fbgcolor span{color:#fff; line-height: 54px;}
 .pull-right{
 	margin-right:10px;
 }
@@ -572,7 +623,7 @@ width: 255px;
 	color:#000;
 }
 
-
+html{overflow-x:hidden;}
 /* registration form start */
 .address{
 background-image: url("../images/locator.png");
@@ -580,10 +631,8 @@ background-position: right center;
 background-repeat: no-repeat;
 border: 1px solid #ccc;
 font-size: 14px;
- margin: 10px 20px;
 padding: 8px 10px 0 13px;
-
-	background-color: rgba(255, 255, 255,0.3);
+ background-color: rgba(255, 255, 255, 0.85);
 }
 .availability span{
 		color:#000;
@@ -614,7 +663,10 @@ background-repeat: no-repeat;
 background-position: right center;
 background-repeat: no-repeat;
 }
-*/
+
+/*---- added css----------*/
+.form-group-1 .row{margin-bottom:10px;}
+.search-form-box .search-padding-bg{padding:20px 10px 10px;}
 /* tab end here */
 @media only screen and (max-width: 350px) {
 	
@@ -759,3 +811,22 @@ background-repeat: no-repeat;
 	width:85%;
 }
 		}
+		
+	
+		
+		/*---------------------media query css-------------------------*/
+@media (min-width:768px) and (max-width:991px) {
+	
+	.search-form-box{width:85% !important;}.form-control{margin-left:5px;}
+}
+@media (max-width:480px) {
+	.hrmtop {
+    margin-top: 20px;
+    padding-bottom: 10px;
+}	
+.fbgcolor span,.fbgcolor a{font-size:11px;}
+}
+@media (max-width:767px) {
+	.address{margin:0px 10px;}
+	.search-form-bs{margin:90px 0px;}
+}
