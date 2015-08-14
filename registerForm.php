@@ -36,6 +36,15 @@
 								id="regstate" placeholder=" State" disabled required /> 
 						</div></div><div style="clear:both;"></div>
 				</div>
+				<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<div class="input-group1">
+							<input type="text" class="form-control locator" name="area" id="regarea"
+								placeholder=" Area" required> 
+						</div>
+					</div>
+			<div style="clear:both;"></div>
+				</div>
 		
 			<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="input-group1">

@@ -315,6 +315,10 @@ class UserDetailsController extends Controller {
 		$model->unsetAttributes (); // clear any default values
 		if (isset ( $_GET ['UserDetails'] ))
 			$model->attributes = $_GET ['UserDetails'];
+		$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
+		$model->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $model->blood_group );
+		$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
+		$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
 		
 		$this->render ( 'admin', array (
 				'model' => $model 

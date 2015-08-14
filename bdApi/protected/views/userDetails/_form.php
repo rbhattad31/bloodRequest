@@ -11,7 +11,9 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<p class="note">
+		Fields with <span class="required">*</span> are required.
+	</p>
 
 	<?php echo $form->errorSummary($model); ?>
 
@@ -44,7 +46,7 @@
 		
 		<?php echo $form->error($model,'blood_group'); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'city'); ?>
 		<?php 
@@ -61,30 +63,47 @@
 		
 		<?php echo $form->error($model,'city'); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->labelEx($model,'area'); ?>
+		<?php 
+		$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+		'model' => $model,
+		'attribute' => 'area',
+		'source'=>$this->createUrl('site/area'),
+		'options'=>array(
+				'showAnim'=>'fold',
+		)
+	));
+		 ?>
+		
+		
+		<?php echo $form->error($model,'city'); ?>
+	</div>
 
 
 
-	
 	<div class="row">
 		<?php echo $form->labelEx($model,'address'); ?>
 		<?php echo $form->textField($model,'address',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'address'); ?>
 	</div>
 
-<div class="row">
+	<div class="row">
 		<?php echo $form->labelEx($model,'dob'); ?>
 		<?php
-$this->widget('ext.my97DatePicker.JMy97DatePicker',array(
-    'name'=>CHtml::activeName($model,'dob'),
-    'value'=>$model->dob,
-		
-    'options'=>array('dateFmt'=>'d/M/yyyy',),
-));
-?>
+		$this->widget ( 'ext.my97DatePicker.JMy97DatePicker', array (
+				'name' => CHtml::activeName ( $model, 'dob' ),
+				'value' => $model->dob,
+				
+				'options' => array (
+						'dateFmt' => 'd/M/yyyy' 
+				) 
+		) );
+		?>
 		<?php echo $form->error($model,'dob'); ?>
 	</div>
-	
-<div class="row">
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'gender'); ?>
 	Male:<?php echo $form->radioButton($model, 'gender', array(
     'value'=>'M',
@@ -97,7 +116,7 @@ echo $form->radioButton($model, 'gender', array(
 )); ?>
 		<?php echo $form->error($model,'gender'); ?>
 	</div>
-	
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'donation_status'); ?>
 	<?php 
@@ -109,7 +128,7 @@ echo $form->radioButton($model, 'gender', array(
 		<?php echo $form->error($model,'donation_status'); ?>
 	</div>
 
-	
+
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
@@ -117,4 +136,5 @@ echo $form->radioButton($model, 'gender', array(
 
 <?php $this->endWidget(); ?>
 
-</div><!-- form -->
+</div>
+<!-- form -->

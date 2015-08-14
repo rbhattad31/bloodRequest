@@ -9,14 +9,16 @@ $(document).ready(function(){
 			number:"required",
 			city: "required",
 			blood_group : "required",
-			captcha : "required"
+			captcha : "required",
+				area:"required"
 		},
 		messages: {
 			name: "Please enter your Name",
 			number:"Please enter your Number",
 			city: "Please select City",
 			blood_group: "Please select Blood Group",
-			captcha : "Please enter captcha"
+			captcha : "Please enter captcha",
+			area:"Please enter Area"
 			},
 		errorPlacement: function(error, element) {
 			        if ( element.is(":radio") ) {
@@ -28,7 +30,33 @@ $(document).ready(function(){
 			    }
 	});
 
-	
+	$("#area").autocomplete(
+		    {
+		    minLength: 1,
+		    source: function (request, response)
+		    {
+		    $.ajax(
+		    {
+		    	 url:url+'/search/area',
+		    	 type: "POST",
+		        data: {area:$('#area').val(),city:$('#city').val() },
+		        dataType: "json",
+		        success: function (jsonDataReceivedFromServer)
+		        {
+		        //alert (JSON.stringify (jsonDataReceivedFromServer));
+		        // console.log (jsonDataReceivedFromServer);
+		        response ($.map(jsonDataReceivedFromServer, function (item)
+		            {
+		            console.log (item.firstname);
+		                            // NOTE: BRACKET START IN THE SAME LINE AS RETURN IN 
+		                            //       THE FOLLOWING LINE
+		            return {
+		                id: item.lookup_value, value: item.lookup_value };
+		            }));
+		        }
+		      });
+		     },
+		   });
 $("#bloodgroup").autocomplete(
 	    {
 	    minLength: 1,

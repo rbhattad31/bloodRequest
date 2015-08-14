@@ -13,10 +13,12 @@
  * @property integer $blood_group
  * @property string $confirmatiocode
  * @property string $validatestatus
+ * @property integer $area
  *
  * The followings are the available model relations:
  * @property LookupDetails $city0
  * @property LookupDetails $state0
+ * @property LookupDetails $area0
  * @property LookupDetails $bloodGroup
  */
 class DonationRequest extends CActiveRecord
@@ -47,14 +49,14 @@ class DonationRequest extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, city, state, number, date, blood_group', 'required'),
-			array('city, state, blood_group', 'numerical', 'integerOnly'=>true),
+			array('name, city, state, number, date, blood_group, confirmatiocode', 'required'),
+			array('city, state, blood_group, area', 'numerical', 'integerOnly'=>true),
 			array('name', 'length', 'max'=>100),
 			array('number, confirmatiocode', 'length', 'max'=>10),
 			array('validatestatus', 'length', 'max'=>1),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('request_id, name, city, state, number, date, blood_group, confirmatiocode, validatestatus', 'safe', 'on'=>'search'),
+			array('request_id, name, city, state, number, date, blood_group, confirmatiocode, validatestatus, area', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +70,7 @@ class DonationRequest extends CActiveRecord
 		return array(
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
+			'area0' => array(self::BELONGS_TO, 'LookupDetails', 'area'),
 			'bloodGroup' => array(self::BELONGS_TO, 'LookupDetails', 'blood_group'),
 		);
 	}
@@ -87,6 +90,7 @@ class DonationRequest extends CActiveRecord
 			'blood_group' => 'Blood Group',
 			'confirmatiocode' => 'Confirmatiocode',
 			'validatestatus' => 'Validatestatus',
+			'area' => 'Area',
 		);
 	}
 
@@ -110,6 +114,7 @@ class DonationRequest extends CActiveRecord
 		$criteria->compare('blood_group',$this->blood_group);
 		$criteria->compare('confirmatiocode',$this->confirmatiocode,true);
 		$criteria->compare('validatestatus',$this->validatestatus,true);
+		$criteria->compare('area',$this->area);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

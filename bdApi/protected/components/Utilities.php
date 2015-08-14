@@ -209,6 +209,15 @@ class Utilities {
 		
 		return $url2;
 	}
+	static function getRequestAdminSMSURL(){
+		$str = Constants::$req_cnf_message;
+		$number = Constants::$admin_number;
+		$tempurl = Constants::$sms_url;
+		$url1 = strtr($tempurl, array('{$number}' =>  $number,'{$message}' => $str));
+		$url2 = preg_replace('/ /', '%20',$url1);
+	
+		return $url2;
+	}
 	
 	static function sendBloodRequestSMS($requestId){
 		$donationRequest = DonationRequest::model()->findByPk($requestId);

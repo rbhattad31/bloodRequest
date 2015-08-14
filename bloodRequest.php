@@ -29,6 +29,16 @@
 						</div>
 						<div style="clear: both;"></div>
 					</div>
+					 <div class="row">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+							<label class="iwant" for="pwd">Area</label>
+						</div>
+						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+							<input type="text" class="form-control location" name="area"
+								id="area" placeholder="Location" />
+						</div>
+						<div style="clear: both;"></div>
+					</div>
                     <div class="row">
 						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 							<label class="iwant" for="usr">Number </label>

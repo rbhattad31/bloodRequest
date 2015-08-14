@@ -1,5 +1,6 @@
 <?php
 class Constants{
+    static $admin_number=9966866886;
 	static $state_lookup_code = 1;
 	static $district_lookup_code = 2;
 	static $area_lookup_code = 3;

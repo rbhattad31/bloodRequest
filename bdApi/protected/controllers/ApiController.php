@@ -138,6 +138,27 @@ class ApiController extends Controller {
 				$models = LookupDetails::model ()->findAll ( $criteria );
 				
 				break;
+			 case 'area' :
+			 	    $city=$_POST ['city'];
+			 	    $city =Utilities::getLookupIdByValue(5,$city);
+			 	    
+					$keyword = $_POST ['area'];
+					$criteria = new CDbCriteria ();
+					// select fields which you want in output
+				
+					$criteria->condition = 'lookup_value LIKE :keyword';
+					$criteria->params = array (
+							':keyword' => $keyword . '%'
+					);
+				
+					$criteria->addCondition ( 'lookup_type_id = :username' );
+					$criteria->params [':username'] = 3;
+					$criteria->addCondition ( 'lookup_parent_id = :city' );
+					$criteria->params [':city'] = $city;
+				
+					$models = LookupDetails::model ()->findAll ( $criteria );
+				
+					break;
 			
 			case 'state' :
 				$model = array ();
@@ -371,6 +392,7 @@ class ApiController extends Controller {
 			
 			$model->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $model->blood_group );
 			$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
+			$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
 			$model->state = $model->city0->lookup_parent_id;
 			$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
 			$number = $model->number;
@@ -401,11 +423,13 @@ class ApiController extends Controller {
 			$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
 			$model->state = $model->city0->lookup_parent_id;
 			$model->date = date ( "Y/m/d" );
+			$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
 			$number = $model->number;
 			$otp = Utilities::generateRandomString ();
 			$model->confirmatiocode = $otp;
 			if ($model->save ()) {
 				$payload = file_get_contents ( Utilities::getRequestConfirmationSMSURL ( $number ) );
+				$payload = file_get_contents ( Utilities::getRequestAdminSMSURL () );
 				Utilities::sendBloodRequestSMS ( $model->request_id );
 				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 			} else {

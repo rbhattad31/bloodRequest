@@ -47,6 +47,7 @@ $(document).ready(function(){
 			
 			city: "required",
 			state: "required",
+			area:"required",
 			
 			gender : "required",
 			donation_status : "required",
@@ -66,6 +67,7 @@ $(document).ready(function(){
 			},
 			city: "Please select City",
 			state: "Please select State",
+			area:"Please select Area",
 			
 			
 			blood_group: "Please select Blood Group",
@@ -124,7 +126,33 @@ $(document).ready(function(){
 		      });
 		     },
 		   });
-	
+	$("#regarea").autocomplete(
+		    {
+		    minLength: 1,
+		    source: function (request, response)
+		    {
+		    $.ajax(
+		    {
+		    	 url:url+'/search/area',
+		    	 type: "POST",
+		        data: {area:$('#regarea').val(),city:$('#regcity').val() },
+		        dataType: "json",
+		        success: function (jsonDataReceivedFromServer)
+		        {
+		        //alert (JSON.stringify (jsonDataReceivedFromServer));
+		        // console.log (jsonDataReceivedFromServer);
+		        response ($.map(jsonDataReceivedFromServer, function (item)
+		            {
+		            console.log (item.firstname);
+		                            // NOTE: BRACKET START IN THE SAME LINE AS RETURN IN 
+		                            //       THE FOLLOWING LINE
+		            return {
+		                id: item.lookup_value, value: item.lookup_value };
+		            }));
+		        }
+		      });
+		     },
+		   });
 	$("#regstate").autocomplete(
 		    {
 		    minLength: 1,

@@ -7214,3 +7214,288 @@ Stack trace:
 REQUEST_URI=/bdonate/bdApi/index.php/userDetails/update/4
 HTTP_REFERER=http://localhost/bdonate/bdApi/index.php/userDetails/update/4
 ---
+2015/08/14 10:06:58 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:06:58 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:04 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:05 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:05 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:07 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 10:07:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (407)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 10:07:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(407): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/
+---
+2015/08/14 11:38:43 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (429)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 11:38:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(429): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=14395450819896
+---
+2015/08/14 11:38:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (429)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 11:38:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(429): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=14395450819896
+---
+2015/08/14 12:28:36 [warning] [application] Failed to set unsafe attribute "donorFile" of "UserDetails".
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\UserDetailsController.php (107)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 12:38:54 [error] [php] Undefined variable: items (C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\SiteController.php:145)
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): SiteController->runAction()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): SiteController->run()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CWebApplication->run()
+REQUEST_URI=/bloodRequest/bdApi/index.php/site/bloodGroups?term=aa
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\SiteController.php (145)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 12:46:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "area".' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(270): CController->missingAction('area')
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('area')
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('site/area')
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/site/area?term=a
+HTTP_REFERER=http://localhost/bloodRequest/bdApi/index.php/userDetails/create
+---
+2015/08/14 11:42:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8).
+in C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php (429)
+in C:\xampp\htdocs\bloodRequest\bdApi\index.php (13)
+2015/08/14 11:42:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`bdonate`.`donation_request`, CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`)). The SQL statement executed was: INSERT INTO `donation_request` (`validatestatus`, `blood_group`, `city`, `area`, `number`, `name`, `state`, `date`, `confirmatiocode`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7, :yp8)' in C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\CDbCommand.php:357
+Stack trace:
+#0 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\bloodRequest\bdApi\protected\controllers\ApiController.php(429): CActiveRecord->save()
+#3 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\actions\CInlineAction.php(49): ApiController->actioncreate()
+#4 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(282): CController->run('create')
+#8 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\web\CWebApplication.php(141): CWebApplication->runController('api/create')
+#9 C:\xampp\htdocs\bloodRequest\bdApi\protected\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\bloodRequest\bdApi\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/bloodRequest/bdApi/index.php/create/donationRequest
+HTTP_REFERER=http://localhost/bloodRequest/index.php?XDEBUG_SESSION_START=ECLIPSE_DBGP&KEY=14395450819896
+---
