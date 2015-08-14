@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 10, 2015 at 01:24 PM
+-- Generation Time: Aug 14, 2015 at 09:15 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -35,17 +35,20 @@ CREATE TABLE IF NOT EXISTS `donation_request` (
   `date` date NOT NULL,
   `blood_group` int(11) NOT NULL,
   `confirmatiocode` varchar(10) NOT NULL,
-  `validatestatus` char(1) NOT NULL DEFAULT 'N'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+  `validatestatus` char(1) NOT NULL DEFAULT 'N',
+  `area` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `donation_request`
 --
 
-INSERT INTO `donation_request` (`request_id`, `name`, `city`, `state`, `number`, `date`, `blood_group`, `confirmatiocode`, `validatestatus`) VALUES
-(6, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '3096', 'N'),
-(7, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '9782', 'N'),
-(8, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '2460', 'N');
+INSERT INTO `donation_request` (`request_id`, `name`, `city`, `state`, `number`, `date`, `blood_group`, `confirmatiocode`, `validatestatus`, `area`) VALUES
+(6, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '3096', 'N', NULL),
+(7, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '9782', 'N', NULL),
+(8, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '2460', 'N', NULL),
+(9, 'rohit', 2582, 58, '9966866886', '2015-08-10', 17, '1650', 'N', NULL),
+(10, 'rohit', 2582, 58, '9966866886', '2015-08-10', 15, '5169', 'N', NULL);
 
 -- --------------------------------------------------------
 
@@ -1620,16 +1623,9 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `dob` date DEFAULT NULL,
   `confirmation_code` varchar(20) NOT NULL,
   `donation_status` char(1) NOT NULL,
-  `blood_group` int(11) NOT NULL
+  `blood_group` int(11) NOT NULL,
+  `area` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_details`
---
-
-INSERT INTO `user_details` (`user_id`, `name`, `number`, `city`, `state`, `gender`, `address`, `dob`, `confirmation_code`, `donation_status`, `blood_group`) VALUES
-(3, 'rohit', '9966866886', 2582, 58, 'M', 'test', '2015-08-07', '9481', 'N', 17),
-(4, 'hello', '9966866880', 2582, 58, 'M', 'test', '2015-08-06', '', 'Y', 15);
 
 --
 -- Indexes for dumped tables
@@ -1639,7 +1635,7 @@ INSERT INTO `user_details` (`user_id`, `name`, `number`, `city`, `state`, `gende
 -- Indexes for table `donation_request`
 --
 ALTER TABLE `donation_request`
-  ADD PRIMARY KEY (`request_id`), ADD UNIQUE KEY `donation_request_idx_2` (`request_id`), ADD KEY `donation_request_idx_1` (`city`,`state`), ADD KEY `fk_CityId1` (`city`), ADD KEY `fk_StateId1` (`state`), ADD KEY `fk_bgid1` (`blood_group`);
+  ADD PRIMARY KEY (`request_id`), ADD UNIQUE KEY `donation_request_idx_2` (`request_id`), ADD KEY `donation_request_idx_1` (`city`,`state`), ADD KEY `fk_CityId1` (`city`), ADD KEY `fk_StateId1` (`state`), ADD KEY `fk_bgid1` (`blood_group`), ADD KEY `fk_areid` (`area`);
 
 --
 -- Indexes for table `lookup_details`
@@ -1651,7 +1647,7 @@ ALTER TABLE `lookup_details`
 -- Indexes for table `user_details`
 --
 ALTER TABLE `user_details`
-  ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `number` (`number`), ADD KEY `user_details_idx_1` (`city`,`state`), ADD KEY `fk_CityId` (`city`), ADD KEY `fk_StateId` (`state`), ADD KEY `fk_BgrpId` (`blood_group`);
+  ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `number` (`number`), ADD KEY `user_details_idx_1` (`city`,`state`), ADD KEY `fk_CityId` (`city`), ADD KEY `fk_StateId` (`state`), ADD KEY `fk_BgrpId` (`blood_group`), ADD KEY `fk_areid1` (`area`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1661,7 +1657,7 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `donation_request`
 --
 ALTER TABLE `donation_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `lookup_details`
 --
@@ -1682,6 +1678,7 @@ ALTER TABLE `user_details`
 ALTER TABLE `donation_request`
 ADD CONSTRAINT `fk_CityId1` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_StateId1` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_bgid1` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`);
 
 --
@@ -1690,6 +1687,7 @@ ADD CONSTRAINT `fk_bgid1` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details
 ALTER TABLE `user_details`
 ADD CONSTRAINT `fk_CityId` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_StateId` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_areid1` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_bgid` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
