@@ -227,20 +227,30 @@ class UserDetailsController extends Controller {
 			
 			$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
 			$model->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $model->blood_group );
+			
+			$model->confirmation_code = "0000";
+			$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
 			if (isset ( $model->city ) && $model->city != "")
-				$model->state = $model->city0->lookup_parent_id;
-			if (! empty ( $model->dob )) {
-				$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
+			$model->state = $model->city0->lookup_parent_id;
+			if(!Utilities::checkDateFormat($model->dob)){
+				$model->dob = DateTime::createFromFormat('d/M/yyyy', $model->dob )->format('Y-m-d');
 			}
+			//$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
+
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',
 						'id' => $model->user_id 
 				));
 		}
-		// $model->city=$model->city0->lookup_value;
-		// $model->blood_group=$model->bloodGroup->lookup_value;
 		
+		if(isset($model->city))
+		$model->city = $model->city0->lookup_value;
+		if(isset($model->blood_group))
+		$model->blood_group = $model->bloodGroup->lookup_value;
+		if(isset($model->area))
+		$model->area = $model->area0->lookup_value;
+	
 		$this->render ( 'create', array (
 				'model' => $model 
 		) );
@@ -255,7 +265,7 @@ class UserDetailsController extends Controller {
 	 */
 	public function actionUpdate($id) {
 		$model = $this->loadModel ( $id );
-		$model->dob = DateTime::createFromFormat ( 'Y-m-d', $model->dob )->format ( 'd/m/Y' );
+		//$model->dob = DateTime::createFromFormat ( 'Y-m-d', $model->dob )->format ( 'd/m/Y' );
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 		
@@ -264,17 +274,23 @@ class UserDetailsController extends Controller {
 			
 			$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
 			$model->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $model->blood_group );
-			if (isset ( $model->city ) && $model->city != "")
-				$model->state = $model->city0->lookup_parent_id;
-			$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
+			$model->state = $model->city0->lookup_parent_id;
+			$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
+			if(!Utilities::checkDateFormat($model->dob)){
+				$model->dob = DateTime::createFromFormat('d/M/yyyy', $model->dob )->format('Y-m-d');
+			}
 			if ($model->save ())
 				$this->redirect ( array (
 						'view',
 						'id' => $model->user_id 
 				) );
 		}
+		if(isset($model->city))
 		$model->city = $model->city0->lookup_value;
+		if(isset($model->blood_group))
 		$model->blood_group = $model->bloodGroup->lookup_value;
+		if(isset($model->area))
+		$model->area = $model->area0->lookup_value;
 		$this->render ( 'update', array (
 				'model' => $model 
 		) );
@@ -315,10 +331,10 @@ class UserDetailsController extends Controller {
 		$model->unsetAttributes (); // clear any default values
 		if (isset ( $_GET ['UserDetails'] ))
 			$model->attributes = $_GET ['UserDetails'];
-		$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
-		$model->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $model->blood_group );
-		$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
-		$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
+// 		$model->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $model->city );
+// 		$model->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $model->blood_group );
+// 		$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
+// 		$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
 		
 		$this->render ( 'admin', array (
 				'model' => $model 

@@ -71,7 +71,7 @@ $form = $this->beginWidget ( 'CActiveForm', array (
 				'value' => $model->dob,
 				
 				'options' => array (
-						'dateFmt' => 'd/M/yyyy' 
+						'dateFmt' => 'yyyy-MM-d' 
 				) 
 		) );
 		?>

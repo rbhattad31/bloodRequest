@@ -59,6 +59,16 @@
 						</div>
 						<div style="clear: both;"></div>
 					</div>
+					<div class="row">
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+							<label class="iwant" for="pwd">Date</label>
+						</div>
+						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+							<input type="text" class="form-control datepicker calender" name="date"
+								id="datepicker" placeholder=" Required Date (DD-MM-YYYY)" > 
+						</div>
+						<div style="clear: both;"></div>
+					</div>
                     <div class="row">
                     <div class="col-xs-12">
 							<div class="captcha-center-details2">

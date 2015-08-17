@@ -16,8 +16,10 @@
  * @property string $donation_status
  * @property integer $blood_group
  * @property integer $area
+ * @property string $last_donation_date
  *
  * The followings are the available model relations:
+ * @property DonationRequest[] $donationRequests
  * @property LookupDetails $city0
  * @property LookupDetails $state0
  * @property LookupDetails $area0
@@ -58,10 +60,11 @@ class UserDetails extends CActiveRecord
 			array('gender, donation_status', 'length', 'max'=>1),
 			array('address', 'length', 'max'=>255),
 			array('confirmation_code', 'length', 'max'=>20),
-			array('dob', 'safe'),
+			array('dob, last_donation_date', 'safe'),
+				array('name, number', 'unique'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, name, number, city, state, gender, address, dob, confirmation_code, donation_status, blood_group, area', 'safe', 'on'=>'search'),
+			array('user_id, name, number, city, state, gender, address, dob, confirmation_code, donation_status, blood_group, area, last_donation_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +76,7 @@ class UserDetails extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'donationRequests' => array(self::HAS_MANY, 'DonationRequest', 'donor'),
 			'city0' => array(self::BELONGS_TO, 'LookupDetails', 'city'),
 			'state0' => array(self::BELONGS_TO, 'LookupDetails', 'state'),
 			'area0' => array(self::BELONGS_TO, 'LookupDetails', 'area'),
@@ -98,6 +102,7 @@ class UserDetails extends CActiveRecord
 			'donation_status' => 'Donation Status',
 			'blood_group' => 'Blood Group',
 			'area' => 'Area',
+			'last_donation_date' => 'Last Donation Date',
 		);
 	}
 
@@ -111,7 +116,12 @@ class UserDetails extends CActiveRecord
 		// should not be searched.
 
 		$criteria=new CDbCriteria;
-
+		if(isset($this->city))
+			$this->city = Utilities::getLookupIdByValue(Constants::$city_lookup_code, $this->city);
+		if(isset($this->blood_group))
+			$this->blood_group = Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $this->blood_group);
+		if(isset($this->area))
+			$this->area = Utilities::getLookupIdByValue(Constants::$area_lookup_code, $this->area);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('number',$this->number,true);
@@ -124,9 +134,28 @@ class UserDetails extends CActiveRecord
 		$criteria->compare('donation_status',$this->donation_status,true);
 		$criteria->compare('blood_group',$this->blood_group);
 		$criteria->compare('area',$this->area);
+		$criteria->compare('last_donation_date',$this->last_donation_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+	
+	/**
+	 * Suggests a list of existing tags matching the specified keyword.
+	 * @param string the keyword to be matched
+	 * @param integer maximum number of tags to be returned
+	 * @return array list of matching tag names
+	 */
+	public function getActiveDonors($bloodGroup,$limit=20)
+	{
+		$tags=$this->findAll(array(
+				'condition'=>'blood_group = :bloodGroup and donation_status = "Y"',
+				'limit'=>$limit,
+				'params'=>array(
+						':bloodGroup'=>$bloodGroup
+				),
+		));
+		return $tags;
 	}
 }

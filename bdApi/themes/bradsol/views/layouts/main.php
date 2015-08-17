@@ -34,20 +34,21 @@
 <div class="logo"><img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png" alt="logo"></div>
 	   <div class="ads">
 	   
-   <div id='cssmenu' style="margin-top:23px;">
-		<ul>
-		<li class='active'><a href='<?php echo $this->createUrl('site/index')?>'><span>Home</span></a></li>
-	
-	<li><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
-    
-  	
-  	 <li><a href='<?php echo $this->createUrl('userDetails/admin')?>'><span>Search User</span></a></li>
-  	  <li><a href='<?php echo $this->createUrl('userDetails/upload')?>'><span>Add Multiple Users</span></a></li>
-     
-  	 
-	</ul>
-	</div>
    
+   <div id='cssmenu'>
+	<ul>
+   <li><a href='<?php echo $this->createUrl('site/index')?>'><span>Home</span></a></li>
+   <li class='active has-sub'><a href='#'><span>User</span></a>
+      <ul>
+        <li><a href='<?php echo $this->createUrl('userDetails/create')?>'><span>Create User</span></a></li>
+	    <li><a href='<?php echo $this->createUrl('userDetails/admin')?>'><span>Search User</span></a></li>
+  	  	
+      </ul>
+   </li>
+  <li><a href='<?php echo $this->createUrl('userDetails/upload')?>'><span>Add Multiple Users</span></a></li>
+   <li><a href='<?php echo $this->createUrl('donationRequest/admin')?>'><span>Search Requests</span></a></li>
+</ul>
+</div>
 	   </div>
 	   <div class="sign_in">
 	   

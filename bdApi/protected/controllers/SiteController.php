@@ -144,4 +144,6 @@ class SiteController extends Controller {
 			echo CJSON::encode ( $items );
 		}
 	}
+	
+	
 }

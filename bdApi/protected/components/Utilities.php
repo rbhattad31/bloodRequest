@@ -17,6 +17,20 @@ class Utilities {
 	
 	/**
 	 *
+	 * @return Ambigous <mixed, multitype:unknown mixed , multitype:unknown , string, unknown>
+	 */
+	static function getStatusList() {
+		$statusList = array ();
+		$status = Constants::$status_list;
+		for($i = 1; $i <= count ( $status ); $i ++) {
+			$statusList [$i] ['value'] = $i;
+			$statusList [$i] ['label'] = $lookup [$i];
+		}
+		return CHtml::listData ( $statusList, 'value', 'label' );
+	}
+	
+	/**
+	 *
 	 * @param unknown $id        	
 	 * @return Ambigous <mixed, multitype:unknown mixed , multitype:unknown , string, unknown>
 	 */
@@ -272,5 +286,14 @@ class Utilities {
 		// otherwise return the 2's complement
 		return ($binary{0} == "0" ? bindec($binary) :
 		-(pow(2, 31) - bindec(substr($binary, 1))));
+	}
+	
+	static function checkDateFormat($date){
+		$dt = DateTime::createFromFormat("Y-m-d", $date);
+		return $dt !== false && !array_sum($dt->getLastErrors());
+	}
+	
+	static function getDonorsList($bloodGroup){
+		return CHtml::listData ( UserDetails::model()->getActiveDonors(self::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $bloodGroup)), 'user_id', 'name' );
 	}
 }

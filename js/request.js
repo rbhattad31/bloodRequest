@@ -3,6 +3,12 @@
  */
 $(document).ready(function(){
     
+	$.validator.addMethod("dateFormat",
+		    function(value, element) {
+		        return value.match(/^dd?-dd?-dd$/);
+		    },
+		    "Please enter a date in the format dd-mm-yyyy.");
+	
 	$("#requestForm").validate({
 		rules: {
 			name: "required",
@@ -10,7 +16,8 @@ $(document).ready(function(){
 			city: "required",
 			blood_group : "required",
 			captcha : "required",
-				area:"required"
+			area:"required",
+			date : {"required":true}
 		},
 		messages: {
 			name: "Please enter your Name",
@@ -18,7 +25,8 @@ $(document).ready(function(){
 			city: "Please select City",
 			blood_group: "Please select Blood Group",
 			captcha : "Please enter captcha",
-			area:"Please enter Area"
+			area:"Please enter Area",
+			date : "Please select date of requirement"
 			},
 		errorPlacement: function(error, element) {
 			        if ( element.is(":radio") ) {

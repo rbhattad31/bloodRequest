@@ -21,13 +21,28 @@ $this->menu=array(
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
-		'request_id',
 		'name',
-		'area',
-		'city',
-		'state',
+		array(
+				'label'=>'City',
+				'value'=>null===$model->city0->lookup_value?
+				"custom message":
+				$model->city0->lookup_value,
+		),
 		'number',
-		'hospital',
 		'date',
+		array(
+				'label'=>'Blood Group',
+				'value'=>null===$model->bloodGroup->lookup_value?
+				"custom message":
+				$model->bloodGroup->lookup_value,
+		),
+		array(
+				'label'=>'Area',
+				'value'=>null===$model->area0->lookup_value?
+				"custom message":
+				$model->area0->lookup_value,
+		),
+		'status',
+		'remarks',
 	),
 )); ?>

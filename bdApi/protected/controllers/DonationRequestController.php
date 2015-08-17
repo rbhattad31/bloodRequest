@@ -6,7 +6,7 @@ class DonationRequestController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column1';
+	public $layout='//layouts/main';
 
 	/**
 	 * @return array action filters
@@ -70,19 +70,14 @@ class DonationRequestController extends Controller
 		if(isset($_POST['DonationRequest']))
 		{
 			$model->attributes=$_POST['DonationRequest'];
-			$model->state=$_POST['state'];
-			$model->city=$_POST['city'];
-			$model->area=$_POST['area'];
-					$model->area=$_POST['area'];
-	$time = strtotime($model->date);
-
-$newformat = date('Y-m-d',$time);
-$model->date=$newformat;
-$number=$model->number;
-$message=$this->generateRandomString();
+			$model->city = Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
+			$model->blood_group = Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
+			$model->area = Utilities::getLookupIdByValue(Constants::$area_lookup_code, $model->area);
+			$model->state= $model->city0->lookup_parent_id;
+			if(!Utilities::checkDateFormat($model->date)){
+					$model->date = DateTime::createFromFormat('d/M/yyyy', $model->date )->format('Y-m-d');
+				}
 			if($model->save())
-				$payload = file_get_contents('http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to='.$number.'&from=BHATTD&message='.$message);
-				
 				$this->redirect(array('view','id'=>$model->request_id));
 		}
 
@@ -100,35 +95,34 @@ $message=$this->generateRandomString();
 	{
 		$model=$this->loadModel($id);
 
+		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['DonationRequest']))
 		{
 			$model->attributes=$_POST['DonationRequest'];
-			$model->state=$_POST['state'];
-			$model->city=$_POST['city'];
-			$model->area=$_POST['area'];
-					$model->area=$_POST['area'];
-	$time = strtotime($model->date);
-
-$newformat = date('Y-m-d',$time);
-$model->date=$newformat;
-
+			$model->city = Utilities::getLookupIdByValue(Constants::$city_lookup_code, $model->city);
+			$model->blood_group = Utilities::getLookupIdByValue(Constants::$bloodgrp_lookup_code, $model->blood_group);
+			$model->area = Utilities::getLookupIdByValue(Constants::$area_lookup_code, $model->area);
+			$model->state= $model->city0->lookup_parent_id;
+			
+			if(!Utilities::checkDateFormat($model->date)){
+				$model->date = DateTime::createFromFormat('d/M/yyyy', $model->date )->format('Y-m-d');
+			}
+			
 			if($model->save())
-				
 				$this->redirect(array('view','id'=>$model->request_id));
 		}
-
+		$model->city = $model->city0->lookup_value;
+		$model->area = $model->area0->lookup_value;
+		$model->blood_group = $model->bloodGroup->lookup_value;
+		//$model->date = DateTime::createFromFormat('Y-m-d', $model->date )->format('d/M/y');
 		$this->render('update',array(
 			'model'=>$model,
 		));
 	}
-	public function generateRandomString($length = 4) {
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-		$characters = str_shuffle($characters);
-		return substr($characters, 0, $length);
-	}
+
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.

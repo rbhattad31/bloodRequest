@@ -425,8 +425,7 @@ class ApiController extends Controller {
 			$model->date = date ( "Y/m/d" );
 			$model->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $model->area );
 			$number = $model->number;
-			$otp = Utilities::generateRandomString ();
-			$model->confirmatiocode = $otp;
+			$model->status = "requested";
 			if ($model->save ()) {
 				$payload = file_get_contents ( Utilities::getRequestConfirmationSMSURL ( $number ) );
 				$payload = file_get_contents ( Utilities::getRequestAdminSMSURL () );
