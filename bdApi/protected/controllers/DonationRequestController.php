@@ -94,7 +94,6 @@ class DonationRequestController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
 		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -111,8 +110,15 @@ class DonationRequestController extends Controller
 				$model->date = DateTime::createFromFormat('d/M/yyyy', $model->date )->format('Y-m-d');
 			}
 			
-			if($model->save())
+			if($model->save()){
+				if($model->status == "Donor Assigned"){
+				$donor = UserDetails::model()->findByPk($model->donor);
+				$donor->last_donation_date = date("Y-m-d");
+				$donor->donation_status = 'Y';
+				$donor->save(false);
+				}
 				$this->redirect(array('view','id'=>$model->request_id));
+			}
 		}
 		$model->city = $model->city0->lookup_value;
 		$model->area = $model->area0->lookup_value;

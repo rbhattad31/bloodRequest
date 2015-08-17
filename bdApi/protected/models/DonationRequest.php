@@ -89,7 +89,7 @@ class DonationRequest extends CActiveRecord
 			'city' => 'City',
 			'state' => 'State',
 			'number' => 'Number',
-			'date' => 'Date',
+			'date' => 'Blood Requirement Date',
 			'blood_group' => 'Blood Group',
 			'area' => 'Area',
 			'status' => 'Status',

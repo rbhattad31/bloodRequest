@@ -64,8 +64,8 @@
 							<label class="iwant" for="pwd">Date</label>
 						</div>
 						<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-							<input type="text" class="form-control datepicker calender" name="date"
-								id="datepicker" placeholder=" Required Date (DD-MM-YYYY)" > 
+							<input type="text" class="form-control calender" name="date"
+								id="datepickerreq" placeholder=" Required Date (DD-MM-YYYY)" > 
 						</div>
 						<div style="clear: both;"></div>
 					</div>
