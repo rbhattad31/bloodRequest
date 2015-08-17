@@ -3,6 +3,12 @@
  */
 $(document).ready(function(){
     
+	$('#datepickerreq').datepicker({ 
+ 		  format: "d/m/yyyy" }).on('changeDate', function(ev){
+		    $(this).datepicker('hide');
+		});
+   
+	
 	$.validator.addMethod("dateFormat",
 		    function(value, element) {
 		        return value.match(/^dd?-dd?-dd$/);
