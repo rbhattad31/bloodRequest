@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2015 at 10:41 AM
+-- Generation Time: Aug 17, 2015 at 04:22 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -34,10 +34,21 @@ CREATE TABLE IF NOT EXISTS `donation_request` (
   `number` varchar(10) NOT NULL,
   `date` date NOT NULL,
   `blood_group` int(11) NOT NULL,
-  `confirmatiocode` varchar(10) NOT NULL,
-  `validatestatus` char(1) NOT NULL DEFAULT 'N',
-  `area` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+  `area` int(11) DEFAULT NULL,
+  `status` varchar(100) DEFAULT NULL,
+  `remarks` text,
+  `donor` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `donation_request`
+--
+
+INSERT INTO `donation_request` (`request_id`, `name`, `city`, `state`, `number`, `date`, `blood_group`, `area`, `status`, `remarks`, `donor`) VALUES
+(14, 'rohit', 727, 562, '9966866886', '2015-08-06', 17, 765, 'Requested', '', NULL),
+(15, 'rohit', 727, 562, '9966866886', '2015-08-07', 11, 584, 'Requested', 'ss', NULL),
+(16, 'rohit', 727, 562, '9966866886', '2015-08-17', 17, 765, 'requested', NULL, NULL),
+(17, 'rohit', 727, 562, '9966866886', '2015-08-17', 15, 763, 'requested', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -51,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `lookup_details` (
   `lookup_description` varchar(244) DEFAULT NULL,
   `lookup_id` int(11) NOT NULL,
   `lookup_type_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2681 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1196 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lookup_details`
@@ -1111,8 +1122,18 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `confirmation_code` varchar(20) NOT NULL,
   `donation_status` char(1) NOT NULL,
   `blood_group` int(11) NOT NULL,
-  `area` int(11) DEFAULT NULL
+  `area` int(11) DEFAULT NULL,
+  `last_donation_date` date DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_details`
+--
+
+INSERT INTO `user_details` (`user_id`, `name`, `number`, `city`, `state`, `gender`, `address`, `dob`, `confirmation_code`, `donation_status`, `blood_group`, `area`, `last_donation_date`) VALUES
+(1, 'rohit', '9966866886', 727, 562, 'M', 'test', '2015-08-07', '0000', 'Y', 17, 765, NULL),
+(2, 'rohit b', '9966866880', 727, 562, 'M', 'test', '2015-08-07', '0000', 'N', 17, 786, NULL),
+(4, 'a user', '9966866881', 727, 562, 'M', 'test', '2015-07-31', '0000', 'Y', 11, 583, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1122,7 +1143,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 -- Indexes for table `donation_request`
 --
 ALTER TABLE `donation_request`
-  ADD PRIMARY KEY (`request_id`), ADD UNIQUE KEY `donation_request_idx_2` (`request_id`), ADD KEY `donation_request_idx_1` (`city`,`state`), ADD KEY `fk_CityId1` (`city`), ADD KEY `fk_StateId1` (`state`), ADD KEY `fk_bgid1` (`blood_group`), ADD KEY `fk_areid` (`area`);
+  ADD PRIMARY KEY (`request_id`), ADD UNIQUE KEY `donation_request_idx_2` (`request_id`), ADD KEY `donation_request_idx_1` (`city`,`state`), ADD KEY `fk_CityId1` (`city`), ADD KEY `fk_StateId1` (`state`), ADD KEY `fk_bgid1` (`blood_group`), ADD KEY `fk_areid` (`area`), ADD KEY `fk_donId` (`donor`);
 
 --
 -- Indexes for table `lookup_details`
@@ -1144,12 +1165,12 @@ ALTER TABLE `user_details`
 -- AUTO_INCREMENT for table `donation_request`
 --
 ALTER TABLE `donation_request`
-  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+  MODIFY `request_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `lookup_details`
 --
 ALTER TABLE `lookup_details`
-  MODIFY `lookup_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2681;
+  MODIFY `lookup_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1196;
 --
 -- AUTO_INCREMENT for table `user_details`
 --
@@ -1166,7 +1187,8 @@ ALTER TABLE `donation_request`
 ADD CONSTRAINT `fk_CityId1` FOREIGN KEY (`city`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_StateId1` FOREIGN KEY (`state`) REFERENCES `lookup_details` (`lookup_id`),
 ADD CONSTRAINT `fk_areid` FOREIGN KEY (`area`) REFERENCES `lookup_details` (`lookup_id`),
-ADD CONSTRAINT `fk_bgid1` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`);
+ADD CONSTRAINT `fk_bgid1` FOREIGN KEY (`blood_group`) REFERENCES `lookup_details` (`lookup_id`),
+ADD CONSTRAINT `fk_donId` FOREIGN KEY (`donor`) REFERENCES `user_details` (`user_id`);
 
 --
 -- Constraints for table `user_details`
