@@ -428,7 +428,7 @@ class ApiController extends Controller {
 			$model->status = "requested";
 			if ($model->save ()) {
 				$payload = file_get_contents ( Utilities::getRequestConfirmationSMSURL ( $number ) );
-				$payload = file_get_contents ( Utilities::getRequestAdminSMSURL () );
+				$payload = file_get_contents ( Utilities::getRequestAdminSMSURL ($model->blood_group) );
 				Utilities::sendBloodRequestSMS ( $model->request_id );
 				$this->_sendResponse ( 200, CJSON::encode ( $model ) );
 			} else {

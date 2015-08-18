@@ -13,6 +13,7 @@ class Constants{
 	static $otp_message = 'Welcome to Mahesh Foundation Your OTP is {$OTP}';
 	static $req_user_message = 'We have recieved a blood request for {$GROUP}. Please contact {$ADMIN} if willing to donate.';
 	static $req_cnf_message = 'Your Blood Request has been submitted. Admin would contact you with further details.';
+	static $admin_req_message = 'A new Blood Request has been submitted for Blood Group {$BLOOD}';
 	static $password_message = 'Your Password is {$OTP}';
-	static $sms_url = 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to={$number}&from=BHATTD&message={$message}';
+	static $sms_url = 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to={$number}&from=MHFND&message={$message}';
 }
