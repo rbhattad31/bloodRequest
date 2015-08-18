@@ -2,11 +2,19 @@
  * 
  */
 $(document).ready(function(){
-    
-	$('#datepickerreq').datepicker({ 
- 		  format: "d/m/yyyy" }).on('changeDate', function(ev){
-		    $(this).datepicker('hide');
-		});
+	
+	var date = new Date();
+	var currentMonth = date.getMonth();
+	var currentDate = date.getDate();
+	var currentYear = date.getFullYear();
+	$('#datepickerreq').datepicker({
+		changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+        changeMonth: true, changeYear: true,  yearRange: '-100:+100',
+        
+	minDate: new Date(currentYear, currentMonth, currentDate)
+	});
    
 	
 	$.validator.addMethod("dateFormat",

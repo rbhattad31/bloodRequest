@@ -9,8 +9,11 @@
 <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css"> 
 <script src="js/jquery.min.js"></script>
 <script src="js/jquery-ui.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" />
+
+
 <script src="js/jquery.bpopup.min.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
+
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.validate.min.js"></script>
 
@@ -28,9 +31,7 @@ src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <script type="text/javascript" src="js/jquery.plugin.js"></script>
 <script type="text/javascript" src="js/jquery.realperson.js"></script>
-<link rel="stylesheet" href="css/datepicker.css" type="text/css" />
-<link rel="stylesheet" href="css/jquery-ui.css" type="text/css" />
-<link rel="stylesheet" href="css/jquery-ui.structure.css" type="text/css" />
+
 <script type="text/javascript"> 
   var geocoder;
   if (navigator.geolocation) {

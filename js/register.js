@@ -12,12 +12,12 @@ $(document).ready(function(){
           	  $('#otp-req').trigger("reset");
           	  $('#otp-req').data('validator').resetForm();
             });
-
-
-         $('.datepicker').datepicker({ 
-   		  format: "d/m/yyyy" }).on('changeDate', function(ev){
-		    $(this).datepicker('hide');
-		});
+         
+         $('.datepicker').datepicker({
+        	 changeMonth: true, changeYear: true,  yearRange: '-120:+100',
+             maxDate: new Date(2000, 11,31)
+     	});
+         
            $("a.popup-register").click(function(){
 
            	$('#signup-popup').bPopup({
