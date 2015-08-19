@@ -259,8 +259,8 @@ margin-right:20px;
 	padding:0px;
 }
 .search-form-bs{
-	margin-top:150px;
-	margin-bottom:160px;
+	margin-top:90px;
+	margin-bottom:90px;
 }
 .location{
 		background-image:url("../images/locator.png");
@@ -389,7 +389,7 @@ height: 32px;
 margin-top: 1px;
 background-color: rgba(255, 255, 255, 0.5);
 margin-left: 3% !important;
-width: 59%;
+width:57%;
 border: 1px solid #ccc;
 outline: none;
 background-image: url("../images/captcha.png");
@@ -399,6 +399,8 @@ padding-left:10px;
 font-weight:100;
     
 }
+.address{width:97.5%  !important;}
+.captch-div .captcha{width:61%;}
 /*.btn:hover{
 	background:#ff0000;
 	color:#fff;
@@ -668,6 +670,8 @@ background-repeat: no-repeat;
 .form-group-1 .row{margin-bottom:10px;}
 .search-form-box .search-padding-bg{padding:20px 10px 10px;}
 /* tab end here */
+
+
 @media only screen and (max-width: 350px) {
 	
 }
@@ -814,11 +818,8 @@ background-repeat: no-repeat;
 		
 	
 		
-		/*---------------------media query css-------------------------*/
-@media (min-width:768px) and (max-width:991px) {
-	
-	.search-form-box{width:85% !important;}.form-control{margin-left:5px;}
-}
+/*---------------------media query css-------------------------*/
+
 @media (max-width:480px) {
 	.hrmtop {
     margin-top: 20px;
@@ -828,5 +829,20 @@ background-repeat: no-repeat;
 }
 @media (max-width:767px) {
 	.address{margin:0px 10px;}
-	.search-form-bs{margin:90px 0px;}
+	.search-form-bs{margin:90px 0px !important;}
+	.search-form-box {width:95% !important;}
+	.form-group-1 .row { margin-bottom: 0px !important;}
+	.realperson-challenge{width:100% !important;}
+	.captcha{margin-left:0% !important; width:97% !important;}
+	.fbgcolor .pull-left,.fbgcolor .pull-right{ float:left !important; width:100% !important;}
+	.fbgcolor span{line-height:18px !important;}
+	.footer-fullwidth{padding-bottom:10px; line-height:0px !important;}
+	.input-group1{margin-bottom:10px;}	#signup-popup .row, #signup-popup-admin .row{margin-top:0px !important;}
+	.form-control,.address{width:97% !important;}.address{margin-bottom:10px !important; width:97% !important;}
+}
+
+
+@media (min-width:768px) and (max-width:991px) {
+	.search-form-box {width:65% !important;} .form-control{margin-left:5px;}
+	
 }

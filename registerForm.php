@@ -43,37 +43,38 @@
 								placeholder=" Area" required> 
 						</div>
 					</div>
-			<div style="clear:both;"></div>
-				</div>
-		
-			<div class="row">
-					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="input-group1">
+			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="input-group1">
 							<input type="text" class="form-control datepicker calender" name="dob"
 								id="datepicker" placeholder=" Date of Birth (DD-MM-YYYY)" required> 
 						</div></div>
+				</div>
+		
+			<div class="row">
+					
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12"><div class="input-group1">
 							<input type="text" class="form-control mobile-icon" name="number" id="number"
 								placeholder=" Mobile Number" required>
 					</div>
-					</div><div style="clear:both;"></div>
-				</div>
-				<div class="row">
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<textarea placeholder="Enter Your Address" name="address" class="address form-control"></textarea>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-					<div class="row">
+					</div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+					
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">	
-							<div style="margin-top:10px;">
+							<div style="margin-top:4px;">
 								<label class="radio-inline"><b> Gender:</b> </label>
 								<label class="radio-inline"> <input type="radio" name="gender" class="radio" value="M">Male</label>
 								<label class="radio-inline"> <input type="radio" class="radio" name="gender" value="F">Female</label>
 								<p class="gender-error-msg"></p>
 							</div>
 						</div>
-					</div>
+					
 			
 				</div>
+				</div>
+				<div class="row">
+				
+					<textarea placeholder="Enter Your Address" name="address" class="address form-control"></textarea>
+				
+				
 				</div>
 				<div class="row">
 					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -87,8 +88,8 @@
 							</div></div>
 							</div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-							<div class="captcha-center-details2">
-							<input type="text" class="captcha" name="captcha"  id="regCaptcha" /> 
+							<div class="captcha-center-details2 captch-div">
+							<input type="text" class="captcha" name="captcha"  id="regCaptcha" placeholder="Enter Text as Shown" /> 
 							</div>
 						</div>
 					</div>

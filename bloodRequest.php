@@ -70,10 +70,10 @@
 						<div style="clear: both;"></div>
 					</div>
                     <div class="row">
-                    <div class="col-xs-12">
+                    
 							<div class="captcha-center-details2">
 							<input type="text" class="captcha" name="captcha"  id="reqCaptcha" placeholder="Enter Text as Shown" /> 
-							</div>
+							
 						</div>
                     </div>
 				</div>
