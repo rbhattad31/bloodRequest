@@ -216,8 +216,8 @@ class Utilities {
 	}
 	
 	static function getRequestConfirmationSMSURL($number){
-		$str = Constants::$req_cnf_message;
-		$tempurl = Constants::$sms_url;
+		$str =Constants::$req_cnf_message;
+		$tempurl =Constants::$sms_url;
 		$url1 = strtr($tempurl, array('{$number}' =>  $number,'{$message}' => $str));
 		$url2 = preg_replace('/ /', '%20',$url1);
 		
@@ -225,13 +225,14 @@ class Utilities {
 	}
 	static function getRequestAdminSMSURL($blood){
 		$str = Constants::$admin_req_message;
+		
 		$number = Constants::$admin_number;
 		$tempurl = Constants::$sms_url;
 		$repstr = strtr($str, array('{$BLOOD}' => $blood));
-		$url1 = strtr($tempurl, array('{$number}' =>  $number,'{$message}' => $repstr));
-		$url2 = preg_replace('/ /', '%20',$url1);
-	
-		return $url2;
+		$repstr=urlencode($repstr);
+		
+		$url1 = strtr($tempurl, array('{$number}' =>  $number,'{$message}' => urlencode($repstr)));
+		return $url1;
 	}
 	
 	static function sendBloodRequestSMS($requestId){
@@ -245,7 +246,7 @@ class Utilities {
 			$tempurl = Constants::$sms_url;
 			$repstr = strtr($str, array('{$GROUP}' => $donationRequest->bloodGroup->lookup_value,'{$ADMIN}' => Constants::$admin_number));
 			$url1 = strtr($tempurl, array('{$number}' =>  $user->number,'{$message}' => $repstr));
-			$url2 = preg_replace('/ /', '%20',$url1);
+			$url2=$url2 = preg_replace('/ /', '%20',$url1);
 			$payload = file_get_contents ($url2);
 		}
 	}

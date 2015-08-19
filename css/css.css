@@ -665,7 +665,23 @@ background-repeat: no-repeat;
 background-position: right center;
 background-repeat: no-repeat;
 }
+.ajaxload::before {
+    background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
 
+.ajaxload {
+	display:none;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: 999999;
+}
 /*---- added css----------*/
 .form-group-1 .row{margin-bottom:10px;}
 .search-form-box .search-padding-bg{padding:20px 10px 10px;}

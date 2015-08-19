@@ -143,6 +143,9 @@ function errorFunction(){
 </head>
 
 <body onload="initialize()">
+<div class="ajaxload">
+							<img src="images/ajax_loader.gif" style="height:100px;width:100px;" />
+						</div>
 	<div class="header-fullwidth">
 		<div class="row row-1">
 			<div class="container">
@@ -164,3 +167,4 @@ function errorFunction(){
 		</div>
 		</div>
 
+</body>

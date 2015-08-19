@@ -136,7 +136,8 @@ $("#city").autocomplete(
 
 
 $("#reqBtn").click(function(){	
-	 
+	
+	
 	if($("#requestForm").valid()){
 		
 		 validateCaptcha($("#reqCaptcha").val(),$("#reqCaptcha").realperson('getHash'),createRequest);
@@ -147,13 +148,15 @@ $("#reqBtn").click(function(){
 });
 
 function createRequest(valid){
-	
+	 
 	if(valid === "Valid"){
+		$(".ajaxload").show();
 		$("#captchaMsg").html("").hide();
 		$("#errorMsg").html("").hide();
 		var reqDetails = $("#requestForm").serialize();
 		 
 		 var request = $("#requestForm").serializeArray();
+		 
 		 $.ajax({
 	       	type: 'POST',
       		url: url+'/create/donationRequest',
@@ -161,6 +164,7 @@ function createRequest(valid){
 			 data: request,
 	       	success: function(data)
 	        		{
+	       	 $(".ajaxload").hide();
 		       		
 		       		$('#requestForm').trigger("reset");
 		       		$('#requestForm').data('validator').resetForm();

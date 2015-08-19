@@ -219,7 +219,7 @@ $(document).ready(function(){
 	$("#otpButton").click(function(){
 		$("#invalidOtpMsg").hide();
 		otp=$("#regotp").val();
-	
+		$(".ajaxload").show();
 		$.ajax({
         	type: 'POST',
        		url: url+'/validate/validateotp',
@@ -227,6 +227,7 @@ $(document).ready(function(){
 			 data: {otp:otp,number: userDetails.number},
         	success: function(data)
          		{
+        		$(".ajaxload").hide();
         		if(data == "Valid"){
         			window.location="index.php";
 					 
@@ -266,6 +267,7 @@ $(document).ready(function(){
 		var userValues = $("#userForm").serialize()+'&donation_status='+status+'&state='+$("#regstate").val();
 		var user = $("#userForm").serializeArray();
 		 if(valid === "Valid"){
+			 $(".ajaxload").show();
 			 $.ajax({
 	            	type: 'POST',
 	           		url: url+'/create/userDetails',
@@ -273,6 +275,7 @@ $(document).ready(function(){
 					 data: user,
 	            	success: function(data)
                  		{
+	            		$(".ajaxload").hide();
 	            		confirmCode = data.confirmation_code;
 	            		userDetails = data;
 	            		 $('#signup-popup').bPopup().close();

@@ -45,6 +45,7 @@
 <th><?php echo $form->labelEx($model,'number'); ?></th>
 <th><?php echo $form->labelEx($model,'blood_group'); ?></th>
 <th><?php echo $form->labelEx($model,'city'); ?></th>
+<th><?php echo $form->labelEx($model,'area'); ?></th>
 <th><?php echo $form->labelEx($model,'gender'); ?></th>
 <th><?php echo $form->labelEx($model,'dontion_status'); ?></th>
 <th><?php echo $form->labelEx($model,'address'); ?></th>
@@ -67,6 +68,10 @@
 <td>
 <?php echo $donor->city.'</br>' ?>
 <?php echo $form->error($donor,'city'); ?>
+</td>
+<td>
+<?php echo $donor->area.'</br>' ?>
+<?php echo $form->error($donor,'area'); ?>
 </td>
 <td>
 <?php echo $donor->gender.'</br>' ?>

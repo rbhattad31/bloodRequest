@@ -1,6 +1,6 @@
 <?php
 class Constants{
-    static $admin_number=9966866886;
+    static $admin_number=9959167378;
 	static $state_lookup_code = 1;
 	static $district_lookup_code = 2;
 	static $area_lookup_code = 3;
@@ -15,5 +15,6 @@ class Constants{
 	static $req_cnf_message = 'Your Blood Request has been submitted. Admin would contact you with further details.';
 	static $admin_req_message = 'A new Blood Request has been submitted for Blood Group {$BLOOD}';
 	static $password_message = 'Your Password is {$OTP}';
-	static $sms_url = 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to={$number}&from=MHFND&message={$message}';
+	static $sms_url = 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to={$number}&from=BHATTD&message={$message}';
+  //static $sms_url = 'http://reseller.bulksmshyderabad.co.in/api/smsapi.aspx?username=abhibhattad&password=BRAD&to={$number}&from=MHFND&message={$message}';
 }

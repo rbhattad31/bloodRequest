@@ -118,7 +118,7 @@ class UserDetailsController extends Controller {
 				$path = $images_path . '\\' . $fileName;
 				Yii::import ( 'ext.vendors.PHPExcel', true );
 				$extension = end ( explode ( '.', $fileName ) );
-				if ($extension === 'xls' && $extension === 'xlsx') {
+				if ($extension == 'xls' || $extension == 'xlsx') {
 					
 					switch ($extension) {
 						case 'xls' :
@@ -154,18 +154,21 @@ class UserDetailsController extends Controller {
 									$tempModel->city = Utilities::getLookupIdByValue ( Constants::$city_lookup_code, $cell->getCalculatedValue () );
 									break;
 								case 3 :
-									$tempModel->gender = $cell->getCalculatedValue ();
+									$tempModel->area = Utilities::getLookupIdByValue ( Constants::$area_lookup_code, $cell->getCalculatedValue () );
 									break;
 								case 4 :
-									$tempModel->donation_status = $cell->getCalculatedValue ();
+									$tempModel->gender = $cell->getCalculatedValue ();
 									break;
 								case 5 :
-									$tempModel->dob = $cell->getCalculatedValue ();
+									$tempModel->donation_status = $cell->getCalculatedValue ();
 									break;
 								case 6 :
-									$tempModel->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $cell->getCalculatedValue () );
+									$tempModel->dob = $cell->getCalculatedValue ();
 									break;
 								case 7 :
+									$tempModel->blood_group = Utilities::getLookupIdByValue ( Constants::$bloodgrp_lookup_code, $cell->getCalculatedValue () );
+									break;
+								case 8 :
 									$tempModel->address = $cell->getCalculatedValue ();
 									break;
 								default :
@@ -199,9 +202,13 @@ class UserDetailsController extends Controller {
 					}
 					foreach ( $donors as $i => $donor ) {
 						$donor->blood_group = $donor->bloodGroup->lookup_value;
+					
 						if (! empty ( $donor->city )) {
 							$donor->state = $donor->state0->lookup_value;
 							$donor->city = $donor->city0->lookup_value;
+						}
+						if (! empty ( $donor->area )) {
+							$donor->area = $donor->area0->lookup_value;
 						}
 					}
 				} else {
