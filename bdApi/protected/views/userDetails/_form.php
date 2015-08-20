@@ -69,6 +69,7 @@
 		$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
 		'model' => $model,
 		'attribute' => 'area',
+
 		'source'=>$this->createUrl('site/area'),
 		'options'=>array(
 				'showAnim'=>'fold',

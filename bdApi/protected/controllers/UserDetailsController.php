@@ -240,6 +240,7 @@ class UserDetailsController extends Controller {
 			if (isset ( $model->city ) && $model->city != "")
 			$model->state = $model->city0->lookup_parent_id;
 			if(!Utilities::checkDateFormat($model->dob)){
+			if (isset ($model->dob ) && $model->dob != "")
 				$model->dob = DateTime::createFromFormat('d/M/yyyy', $model->dob )->format('Y-m-d');
 			}
 			//$model->dob = DateTime::createFromFormat ( 'd/m/Y', $model->dob )->format ( 'Y-m-d' );
@@ -251,11 +252,11 @@ class UserDetailsController extends Controller {
 				));
 		}
 		
-		if(isset($model->city))
+		if(!empty($model->city))
 		$model->city = $model->city0->lookup_value;
-		if(isset($model->blood_group))
+		if(!empty($model->blood_group))
 		$model->blood_group = $model->bloodGroup->lookup_value;
-		if(isset($model->area))
+		if(!empty($model->area))
 		$model->area = $model->area0->lookup_value;
 	
 		$this->render ( 'create', array (
