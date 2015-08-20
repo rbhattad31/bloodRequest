@@ -22,6 +22,8 @@ $(document).ready(function(){
 		        return value.match(/^dd?-dd?-dd$/);
 		    },
 		    "Please enter a date in the format dd-mm-yyyy.");
+	$('#requestForm').trigger("reset");
+	//$('#requestForm').data('validator').resetForm();
 	
 	$("#requestForm").validate({
 		rules: {

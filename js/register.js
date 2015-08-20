@@ -10,7 +10,7 @@ $(document).ready(function(){
          });
          $(".regreset").click(function(){
           	  $('#otp-req').trigger("reset");
-          	  $('#otp-req').data('validator').resetForm();
+          	  //$('#otp-req').data('validator').resetForm();
             });
          
          $('.datepicker').datepicker({
